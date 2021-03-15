@@ -1,10 +1,14 @@
 const apiKey = '2041494ca782403cb6055682a7943c75'
 const giphyRandomEndpoint = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=&rating=G`;
+const giphyTrendingEndpoint = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=25&rating=g`
 
 // GRAB THE BUTTON ELEMENT FROM THE DOM
 const randomButton = document.querySelector('#getRandomGiphyButton')
 const titleDiv = document.querySelector('#giphyTitleDiv')
 const imageTag = document.querySelector('#giphyImageTag')
+const searchGifs = document.querySelector('#searchGifs')
+const getSearchButton = document.querySelector('#getSearchGiphyButton')
+const getTrendingGiphyButton = document.querySelector('#getTrendingGiphyButton')
 
 // ADD A CLICK EVENT LISTENER
 randomButton.addEventListener('click', () => {
@@ -20,12 +24,26 @@ randomButton.addEventListener('click', () => {
         .catch(err => console.log(err))
 })
 
-// INSIDE THE EVENT HANDLER, MAKE A FETCH GET REQUEST TO THE
-// giphyRandomApiUrl ENDPOINT
+getTrendingGiphyButton.addEventListener('click', () => {
+    searchGifs.innerHTML = ''
+    console.log('trending clicked', giphyTrendingEndpoint)
+    fetch(giphyTrendingEndpoint)
+        .then(response => response.json())
+        .then(json => {
+            json.data.forEach(gif => {
+                console.log(gif)
+                let newImageLink = document.createElement('a')
+                newImageLink.setAttribute('href', gif.embed_url)
+                newImageLink.setAttribute('target', '_blank' )
+                let newImageEl = document.createElement('img')
+                newImageEl.setAttribute('src', gif.images.fixed_width_downsampled.url)
+                newImageLink.append(newImageEl)
+                searchGifs.append(newImageLink)
+            })
 
-// IN THE .THEN METHOD, PARSE THE JSON RESPONSE OBJECT AND FIND
-// THE image_url key
+            console.log(json)
+        })
+})
 
-// CHANGE THE SRC ATTRIBUTE ON THE IMG TAG TO THE image_url KEY
 
-// CHANGE THE INNER TEXT OF THE giphyTitleDiv TO  THE title KEY
+
