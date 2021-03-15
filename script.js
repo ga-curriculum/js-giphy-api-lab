@@ -12,6 +12,8 @@
 
     const newGifsLoop = (array) => {
         searchGifs.innerHTML = ''
+        imageTag.style.display = "none"
+        titleDiv.style.display = "none"
         array.forEach(gif => {
             console.log(gif)
             let newImageLink = document.createElement('a')
@@ -31,6 +33,8 @@
             .then(json => {
                 let title = json.data.title
                 let giphyUrl = json.data.fixed_width_downsampled_url
+                imageTag.style.display = "block"
+                titleDiv.style.display = "block"
                 imageTag.setAttribute('src', giphyUrl)
                 titleDiv.innerText = `${title}`
             })
