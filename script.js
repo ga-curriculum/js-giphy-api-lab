@@ -27,6 +27,7 @@
     }
 
     randomButton.addEventListener('click', () => {
+        searchGifs.innerHTML = ''
         const giphyRandomEndpoint = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=&rating=G`;
         fetch(giphyRandomEndpoint)
             .then(response => response.json())
