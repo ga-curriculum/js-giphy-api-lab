@@ -24,38 +24,33 @@
         })
     }
 
-    randomButton.addEventListener('click', () => {
+    const trendingOrSearchFetch = async(giphyEndpoint) => {
+        try {
+            let response = await fetch(giphyEndpoint)
+            let json = await response.json()
+            newGifsLoop(json.data)
+        } catch(err) { console.log(err)}
+    }
+
+    randomButton.addEventListener('click', async() => {
         const giphyRandomEndpoint = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=&rating=G`;
-        fetch(giphyRandomEndpoint)
-            .then(response => response.json())
-            .then(json => {
-                let title = json.data.title
-                let giphyUrl = json.data.fixed_width_downsampled_url
-                imageTag.setAttribute('src', giphyUrl)
-                titleDiv.innerText = `${title}`
-            })
-            .catch(err => console.log(err))
+        try {
+            let response = await fetch(giphyRandomEndpoint)
+            let json = await response.json()
+            imageTag.setAttribute('src', json.data.fixed_width_downsampled_url)
+            titleDiv.innerText = `${json.data.title}`
+        }
+        catch(err){ console.log(err) }
     })
 
     getTrendingGiphyButton.addEventListener('click', () => {
-        const giphyTrendingEndpoint = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=25&rating=g`
-        fetch(giphyTrendingEndpoint)
-            .then(response => response.json())
-            .then(json => {
-                newGifsLoop(json.data)
-            })
+        return trendingOrSearchFetch(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=25&rating=g`)
     })
 
     getSearchButton.addEventListener('click', () => {
         let userSearch = userInput.value
-        const giphySearchEndpoint = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${userSearch}&limit=25&offset=0&rating=g&lang=en`
-        fetch(giphySearchEndpoint)
-            .then(response => response.json())
-            .then(json => {
-                newGifsLoop(json.data)
-            })
+        return trendingOrSearchFetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${userSearch}&limit=25&offset=0&rating=g&lang=en`)
     })
-
 })()
 
 
