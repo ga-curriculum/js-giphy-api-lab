@@ -1,6 +1,6 @@
 ## Axios AJAX Giphy
 
-[Gophy Quickstart Guide](https://developers.giphy.com/docs/api)
+[Giphy Quickstart Guide](https://developers.giphy.com/docs/api)
 
 Today, you'll practice what we learned today and return a random gif from the [Giphy API](https://developers.giphy.com/explorer).
 
