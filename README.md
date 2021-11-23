@@ -14,7 +14,7 @@ Read the `script.js` file for instructions.
 
 <br>
 
-## We Do
+## Get A Random Giphy!
 
 When I click on the `Get Random Giphy!` button I should see a random gif and the title underneath.
 
@@ -24,7 +24,7 @@ Make sure that you turn on GitHub Pages for your repo so we can test it out!
 
 <br>
 
-## You Do - Part 1
+## Part 1
 
 Add a 2nd button to hit the Giphy trending endpoint:
 
@@ -34,7 +34,7 @@ const giphyTrendingEndpoint = `https://api.giphy.com/v1/gifs/trending?api_key=20
 
 <br>
 
-## You Do - Part 2
+## Part 2
 
 Add a form with an input field so that the user can `search` for gifs by keyword.
 
