@@ -1,4 +1,4 @@
-## Axios AJAX Giphy
+## AJAX Giphy
 
 [Giphy Quickstart Guide](https://developers.giphy.com/docs/api)
 
