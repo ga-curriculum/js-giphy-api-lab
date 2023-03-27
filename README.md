@@ -23,7 +23,7 @@ When I click on the `Get Random Giphy!` button I should see a random gif and the
 
 <br>
 
-## Part 1
+## Part 2
 
 Add a 2nd button to hit the Giphy trending endpoint:
 
@@ -33,7 +33,7 @@ const giphyTrendingEndpoint = `https://api.giphy.com/v1/gifs/trending?api_key=20
 
 <br>
 
-## Part 2
+## Part 3
 
 Add a form with an input field so that the user can `search` for gifs by keyword.
 
