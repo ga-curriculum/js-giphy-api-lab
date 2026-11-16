@@ -7,7 +7,7 @@ Today, you'll practice what we learned today and return a random gif from the [G
 Giphy requires an API key (it's free). However, I've given you the random endpoint with a working API key in the `script.js` file.
 
 ```js
-const giphyRandomEndpoint = `https://api.giphy.com/v1/gifs/random?api_key=2041494ca782403cb6055682a7943c75&tag=&rating=G`
+const giphyRandomEndpoint = `https://api.giphy.com/v1/gifs/random?api_key=YOUR_GIPHY_API_KEY&tag=&rating=G`
 ```
 
 Read the `script.js` file for instructions. 
@@ -29,7 +29,7 @@ Make sure that you turn on GitHub Pages for your repo so we can test it out!
 Add a 2nd button to hit the Giphy trending endpoint:
 
 ```js
-const giphyTrendingEndpoint = `https://api.giphy.com/v1/gifs/trending?api_key=2041494ca782403cb6055682a7943c75&tag=&rating=G`
+const giphyTrendingEndpoint = `https://api.giphy.com/v1/gifs/trending?api_key=YOUR_GIPHY_API_KEY&tag=&rating=G`
 ```
 
 <br>
